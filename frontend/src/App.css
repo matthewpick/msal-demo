@@ -5,6 +5,10 @@
   text-align: center;
 }
 
+.header {
+  margin-bottom: 2rem;
+}
+
 h1 {
   font-size: 3em;
   line-height: 1.1;
@@ -13,7 +17,53 @@ h1 {
 
 .subtitle {
   color: #888;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.auth-section {
+  background: #1a1a1a;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem auto;
+  max-width: 600px;
+}
+
+.auth-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.user-info {
+  color: #4ade80;
+  margin: 0;
+}
+
+.auth-button {
+  padding: 0.75rem 2rem;
+  background: #646cff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.auth-button:hover {
+  background: #535bf2;
+}
+
+.auth-button.logout {
+  background: #ef4444;
+}
+
+.auth-button.logout:hover {
+  background: #dc2626;
 }
 
 .api-container {
@@ -62,6 +112,14 @@ h1 {
 .call-button:disabled {
   background: #444;
   cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.auth-warning {
+  color: #fbbf24;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+  margin-bottom: 0;
 }
 
 .response {
@@ -93,3 +151,18 @@ h1 {
 .response p {
   margin: 0.5rem 0 0 0;
 }
+
+.token-info {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: rgba(34, 197, 94, 0.1);
+  border: 1px solid rgba(34, 197, 94, 0.3);
+  border-radius: 8px;
+  color: #4ade80;
+  font-size: 0.875rem;
+}
+
+.token-info p {
+  margin: 0;
+}
+

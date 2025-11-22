@@ -313,39 +313,42 @@ Now that AWS infrastructure is working, add Azure AD authentication.
 ### Phase 8: Add MSAL Authentication to Frontend
 
 #### 8.1 Install and Configure MSAL
-- [ ] Install MSAL React library
-  - [ ] `npm install @azure/msal-react @azure/msal-browser`
-- [ ] Update `.env` file with Azure AD configuration
-  - [ ] VITE_AZURE_CLIENT_ID (frontend app ID from Terraform outputs)
-  - [ ] VITE_AZURE_TENANT_ID
-  - [ ] VITE_REDIRECT_URI=https://demo-frontend.matthewpick.com
-  - [ ] VITE_API1_SCOPE=api://api1.matthewpick.com/access_as_user
-  - [ ] VITE_API2_SCOPE=api://api2.matthewpick.com/access_as_user
-  - [ ] VITE_API3_SCOPE=api://api3.matthewpick.com/access_as_user
+- [x] Install MSAL React library
+  - [x] `npm install @azure/msal-react @azure/msal-browser`
+- [x] Update `.env` file with Azure AD configuration
+  - [x] VITE_AZURE_CLIENT_ID (frontend app ID: 26c56ce3-9704-4ce7-bbf8-fb1e2095d46a)
+  - [x] VITE_AZURE_TENANT_ID (611b1d40-e0c9-4dc7-a161-337daf7a1fb9)
+  - [x] VITE_REDIRECT_URI=http://localhost:5173/ (dev) / https://demo-frontend.matthewpick.com/ (prod)
+  - [x] VITE_API1_SCOPE=api://api1.matthewpick.com/access_as_user
+  - [x] VITE_API2_SCOPE=api://api2.matthewpick.com/access_as_user
+  - [x] VITE_API3_SCOPE=api://api3.matthewpick.com/access_as_user
 
 #### 8.2 Implement MSAL in React
-- [ ] Create `frontend/src/authConfig.js`
-  - [ ] Configure MSAL instance with client ID, tenant ID, redirect URI
-  - [ ] Define scopes for each API
-- [ ] Wrap app with `MsalProvider` in `main.jsx` or `App.jsx`
-- [ ] Create Login component
-  - [ ] Sign-in button
-  - [ ] Display user info when authenticated
-  - [ ] Sign-out button
-- [ ] Update API call components to use MSAL
-  - [ ] Implement acquireTokenSilent for API 1 calls
-  - [ ] Implement acquireTokenSilent for API 2 calls
-  - [ ] Implement acquireTokenSilent for API 3 calls
-  - [ ] Handle InteractionRequiredAuthError
-  - [ ] Fallback to acquireTokenPopup/Redirect
-  - [ ] Add token to Authorization header (Bearer token)
+- [x] Create `frontend/src/authConfig.js`
+  - [x] Configure MSAL instance with client ID, tenant ID, redirect URI
+  - [x] Define combined scopes for all 3 APIs in single token (more efficient!)
+- [x] Wrap app with `MsalProvider` in `main.jsx`
+- [x] Create authentication UI
+  - [x] Sign-in button
+  - [x] Display user info when authenticated
+  - [x] Sign-out button
+- [x] Create custom hook `useApiCall` for authenticated API calls
+  - [x] Single token acquisition with all 3 API scopes
+  - [x] Implements acquireTokenSilent with fallback to popup
+  - [x] Handles InteractionRequiredAuthError
+  - [x] Adds token to Authorization header (Bearer token)
+  - [x] Reuses cached token for all API calls
+- [x] Update API call components to use MSAL
+  - [x] All API cards use same authenticated callApi function
+  - [x] Single token works for all 3 APIs
+  - [x] Disable API buttons when not authenticated
 
 #### 8.3 Local Testing with Auth
-- [ ] Update local `.env` for development
-  - [ ] Set VITE_REDIRECT_URI=http://localhost:5173
-- [ ] Test frontend locally (`npm run dev`)
+- [x] Updated local `.env` for development
+  - [x] Set VITE_REDIRECT_URI=http://localhost:5173/
+- [x] Frontend running locally at http://localhost:5173
 - [ ] Test login flow
-- [ ] Test calling each API with acquired tokens
+- [ ] Test calling each API with acquired token
 - [ ] Test logout flow
 - [ ] Test token refresh
 - [ ] Check for error handling
