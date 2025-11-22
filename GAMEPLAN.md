@@ -115,24 +115,24 @@ Create modules for reusable infrastructure (3 identical deployments):
 Build a simple backend first without auth, then add Azure AD authentication later.
 
 #### 2.1 Backend Setup
-- [ ] Initialize Python project with Poetry/pip
-  - [ ] Add FastAPI dependency
-  - [ ] Add uvicorn dependency
-  - [ ] Add mangum for AWS Lambda handler
-  - [ ] Add python-dotenv for environment variables
-- [ ] Create `backend/main.py` with FastAPI app
-  - [ ] Create hello world endpoint (no auth yet)
-  - [ ] Create health check endpoint
-  - [ ] Add Lambda handler using Mangum
-- [ ] Add CORS middleware configuration
-  - [ ] Allow frontend domain
-  - [ ] Allow localhost for development
-- [ ] Create `backend/requirements.txt` from dependencies
+- [x] Initialize Python project with uv / pip
+  - [x] Add FastAPI dependency
+  - [x] Add uvicorn dependency
+  - [x] Add mangum for AWS Lambda handler
+  - [x] Add python-dotenv for environment variables
+- [x] Create `backend/main.py` with FastAPI app
+  - [x] Create hello world endpoint (no auth yet)
+  - [x] Create health check endpoint
+  - [x] Add Lambda handler using Mangum
+- [x] Add CORS middleware configuration
+  - [x] Allow frontend domain
+  - [x] Allow localhost for development
+- [x] Create `backend/requirements.txt` from dependencies
 
 #### 2.2 Local Testing
-- [ ] Test backend locally with `uvicorn main:app --reload`
-- [ ] Test endpoints via browser or curl
-- [ ] Verify CORS headers
+- [x] Test backend locally with `uv run start`
+- [x] Test endpoints via browser or curl
+- [x] Verify CORS headers
 
 ---
 
