@@ -30,7 +30,7 @@ def hello():
     return {"message": "Hello from FastAPI backend"}
 
 # Lambda handler for API Gateway integration
-handler = Mangum(app)
+lambda_handler = Mangum(app)
 
 # Dev helper
 def run_dev():  # pragma: no cover

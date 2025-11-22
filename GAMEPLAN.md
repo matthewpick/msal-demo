@@ -139,27 +139,27 @@ Build a simple backend first without auth, then add Azure AD authentication late
 ### Phase 3: Backend Deployment to AWS
 
 #### 3.1 Build and Package
-- [ ] Create `backend/deploy.sh` script
-  - [ ] Zip Lambda function code + dependencies using AWS SAM
-- [ ] Build deployment package
+- [x] Create `backend/deploy.sh` script
+  - [x] Zip Lambda function code + dependencies using Docker for Lambda-compatible binaries
+- [x] Build deployment package
 
 #### 3.2 Deploy to Lambda (All 3 API Instances)
-- [ ] Deploy API 1 code to Lambda via AWS CLI or Console
-  - [ ] Upload zip file
-  - [ ] Set handler to `main.handler`
-  - [ ] Test function with test event
-- [ ] Deploy API 2 code to Lambda (same package)
-  - [ ] Upload zip file
-  - [ ] Test function
-- [ ] Deploy API 3 code to Lambda (same package)
-  - [ ] Upload zip file
-  - [ ] Test function
+- [x] Deploy API 1 code to Lambda via AWS CLI
+  - [x] Upload zip file
+  - [x] Set handler to `main.lambda_handler`
+  - [x] Test function with test event
+- [x] Deploy API 2 code to Lambda (same package)
+  - [x] Upload zip file
+  - [x] Test function
+- [x] Deploy API 3 code to Lambda (same package)
+  - [x] Upload zip file
+  - [x] Test function
 
 #### 3.3 Verify Backend Endpoints
-- [ ] Test https://api1.matthewpick.com/health (or hello endpoint)
-- [ ] Test https://api2.matthewpick.com/health
-- [ ] Test https://api3.matthewpick.com/health
-- [ ] Test with curl or browser
+- [x] Test https://api1.matthewpick.com/health (or hello endpoint)
+- [x] Test https://api2.matthewpick.com/health
+- [x] Test https://api3.matthewpick.com/health
+- [x] All APIs working successfully
 
 ---
 
