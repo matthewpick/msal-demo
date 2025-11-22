@@ -31,3 +31,29 @@ variable "route53_hosted_zone_id" {
   description = "Route53 hosted zone ID that manages the above domains."
   default     = "Z2QNLRRF8YAHS9"
 }
+
+# Azure AD Configuration
+variable "azure_tenant_id" {
+  type        = string
+  description = "Azure AD Tenant ID"
+  default     = ""
+}
+
+variable "api1_azure_client_id" {
+  type        = string
+  description = "Azure AD Application (Client) ID for API 1"
+  default     = ""
+}
+
+variable "api2_azure_client_id" {
+  type        = string
+  description = "Azure AD Application (Client) ID for API 2"
+  default     = ""
+}
+
+variable "api3_azure_client_id" {
+  type        = string
+  description = "Azure AD Application (Client) ID for API 3"
+  default     = ""
+}
+

@@ -276,32 +276,37 @@ Now that AWS infrastructure is working, add Azure AD authentication.
 ### Phase 7: Add Authentication to Backend
 
 #### 7.1 Update Backend with Azure AD JWT Validation
-- [ ] Add authentication dependencies
-  - [ ] Add python-jose[cryptography] for JWT validation
-  - [ ] Add msal or azure-identity (optional, for token validation)
-- [ ] Create `backend/auth.py` for Azure AD JWT validation
-  - [ ] Implement token validation middleware
-  - [ ] Validate audience (app ID)
-  - [ ] Validate issuer (Azure AD tenant)
-  - [ ] Validate signature using Azure AD public keys
-  - [ ] Extract user info from token
-- [ ] Update `backend/config.py` for environment variables
-  - [ ] AZURE_CLIENT_ID (from Azure Terraform outputs)
-  - [ ] AZURE_TENANT_ID
-  - [ ] API_DOMAIN (e.g., api1.matthewpick.com)
-- [ ] Update endpoints to require authentication
-  - [ ] Add auth dependency to protected routes
-  - [ ] Test with and without valid tokens
+- [x] Add authentication dependencies
+  - [x] Add PyJWT and cryptography for JWT validation
+  - [x] Add msal for Azure AD integration
+  - [x] Add requests for fetching signing keys
+- [x] Create `backend/auth.py` for Azure AD JWT validation
+  - [x] Implement token validation middleware
+  - [x] Validate audience (app ID)
+  - [x] Validate issuer (Azure AD tenant)
+  - [x] Validate signature using Azure AD public keys
+  - [x] Extract user info from token
+- [x] Update `backend/config.py` for environment variables
+  - [x] AZURE_CLIENT_ID (from Azure Terraform outputs)
+  - [x] AZURE_TENANT_ID
+  - [x] APP_DOMAIN (e.g., api1.matthewpick.com)
+  - [x] FRONTEND_DOMAIN for CORS
+- [x] Update endpoints to require authentication
+  - [x] Add auth dependency to protected routes (/hello, /me)
+  - [x] Keep /health public for monitoring
+  - [x] Test with and without valid tokens
 
 #### 7.2 Redeploy Backend APIs with Auth
-- [ ] Update Lambda environment variables via AWS Console or Terraform
-  - [ ] API 1: Set AZURE_CLIENT_ID for API 1
-  - [ ] API 2: Set AZURE_CLIENT_ID for API 2
-  - [ ] API 3: Set AZURE_CLIENT_ID for API 3
-  - [ ] All 3: Set AZURE_TENANT_ID
-- [ ] Rebuild deployment package with new dependencies
-- [ ] Deploy updated code to all 3 Lambda functions
-- [ ] Test endpoints (should now require auth)
+- [x] Update Lambda environment variables via Terraform
+  - [x] API 1: Set AZURE_CLIENT_ID = 2690829c-0be9-49fb-ba82-5fffc33f5d5b
+  - [x] API 2: Set AZURE_CLIENT_ID = aacec607-140f-4860-b6a4-ea0c51df1153
+  - [x] API 3: Set AZURE_CLIENT_ID = dd736fed-b4e3-4a3c-89e0-be338764210d
+  - [x] All 3: Set AZURE_TENANT_ID = 611b1d40-e0c9-4dc7-a161-337daf7a1fb9
+- [x] Rebuild deployment package with new dependencies
+- [x] Deploy updated code to all 3 Lambda functions
+- [x] Test endpoints (all now require auth for protected routes)
+- [x] Verified /health returns auth_enabled: true
+- [x] Verified /hello requires valid token (returns 401 without token)
 
 ---
 

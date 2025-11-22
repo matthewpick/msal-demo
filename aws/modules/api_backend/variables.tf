@@ -13,3 +13,21 @@ variable "route53_hosted_zone_id" {
   description = "Hosted zone ID for creating alias record to CloudFront"
 }
 
+variable "azure_client_id" {
+  type        = string
+  description = "Azure AD Application (Client) ID for this API"
+  default     = ""
+}
+
+variable "azure_tenant_id" {
+  type        = string
+  description = "Azure AD Tenant ID"
+  default     = ""
+}
+
+variable "frontend_domain" {
+  type        = string
+  description = "Frontend domain for CORS configuration"
+  default     = "demo-frontend.matthewpick.com"
+}
+

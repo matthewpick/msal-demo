@@ -37,7 +37,10 @@ resource "aws_lambda_function" "lambda" {
   description   = "Stub Lambda for ${var.domain_name}"
   environment {
     variables = {
-      APP_DOMAIN = var.domain_name
+      APP_DOMAIN       = var.domain_name
+      AZURE_CLIENT_ID  = var.azure_client_id
+      AZURE_TENANT_ID  = var.azure_tenant_id
+      FRONTEND_DOMAIN  = var.frontend_domain
     }
   }
 }
