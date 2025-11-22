@@ -168,21 +168,22 @@ Build a simple backend first without auth, then add Azure AD authentication late
 Build a simple React frontend first without MSAL auth, then add authentication later.
 
 #### 4.1 React Setup
-- [ ] Initialize React app (Vite recommended)
-  - [ ] `npm create vite@latest frontend -- --template react`
-- [ ] Create `.env` file for configuration (add to .gitignore!)
-  - [ ] VITE_API1_URL=https://api1.matthewpick.com
-  - [ ] VITE_API2_URL=https://api2.matthewpick.com
-  - [ ] VITE_API3_URL=https://api3.matthewpick.com
-- [ ] Create simple UI components
-  - [ ] Component for calling API 1
-  - [ ] Component for calling API 2
-  - [ ] Component for calling API 3
-  - [ ] Display response from each API
-  - [ ] Basic error handling
+- [x] Initialize React app (Vite recommended)
+  - [x] `npm create vite@latest frontend -- --template react`
+- [x] Create `.env` file for configuration (add to .gitignore!)
+  - [x] VITE_API1_URL=https://api1.matthewpick.com
+  - [x] VITE_API2_URL=https://api2.matthewpick.com
+  - [x] VITE_API3_URL=https://api3.matthewpick.com
+- [x] Create simple UI components
+  - [x] Component for calling API 1
+  - [x] Component for calling API 2
+  - [x] Component for calling API 3
+  - [x] Display response from each API
+  - [x] Basic error handling
 
 #### 4.2 Local Testing
-- [ ] Test frontend locally (`npm run dev`)
+- [x] Test frontend locally (`npm run dev`)
+- [x] Dev server running on http://localhost:5173
 - [ ] Test calling all 3 APIs
 - [ ] Verify CORS is working
 - [ ] Check browser console for errors
