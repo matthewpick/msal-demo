@@ -59,7 +59,7 @@ export const useApiCall = () => {
    * @param {number} apiNumber - Which API (1, 2, or 3) to acquire token for
    * @param {object} options - Fetch options (method, headers, body, etc.)
    */
-  const callApi = async (url, apiNumber, options = {}) => {
+  const makeAuthenticatedApiCall = async (url, apiNumber, options = {}) => {
     setLoading(true);
     setError(null);
 
@@ -92,6 +92,6 @@ export const useApiCall = () => {
     }
   };
 
-  return { callApi, loading, error };
+  return { makeAuthenticatedApiCall, loading, error };
 };
 

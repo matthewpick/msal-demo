@@ -7,7 +7,7 @@ import './App.css'
 function App() {
   const isAuthenticated = useIsAuthenticated();
   const { instance, accounts } = useMsal();
-  const { callApi } = useApiCall();
+  const { makeAuthenticatedApiCall } = useApiCall();
 
   const [api1Response, setApi1Response] = useState(null)
   const [api2Response, setApi2Response] = useState(null)
@@ -29,7 +29,7 @@ function App() {
     instance.logoutPopup();
   };
 
-  const callAPI = async (apiNumber) => {
+  const handleCallAPI = async (apiNumber) => {
     const apiUrls = {
       1: import.meta.env.VITE_API1_URL,
       2: import.meta.env.VITE_API2_URL,
@@ -55,7 +55,7 @@ function App() {
 
     try {
       // Pass apiNumber so the hook knows which API scope to request
-      const data = await callApi(`${apiUrls[apiNumber]}/hello`, apiNumber)
+      const data = await makeAuthenticatedApiCall(`${apiUrls[apiNumber]}/hello`, apiNumber)
       setResponse[apiNumber](data)
     } catch (err) {
       setError[apiNumber](err.message)
@@ -69,7 +69,7 @@ function App() {
       <h2>API {apiNumber}</h2>
       <p className="api-url">{import.meta.env[`VITE_API${apiNumber}_URL`]}</p>
       <button
-        onClick={() => callAPI(apiNumber)}
+        onClick={() => handleCallAPI(apiNumber)}
         disabled={isLoading || !isAuthenticated}
         className="call-button"
       >
