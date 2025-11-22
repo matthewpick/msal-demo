@@ -16,6 +16,7 @@ If you include scopes that belong to different resources (e.g. `api://api1.../ac
 5. Performance & Caching Semantics: MSAL and Azure AD can independently cache and refresh tokens with lifetimes tailored per resource. Bundling would complicate renewal flows.
 
 This behavior is by design and confirmed across Microsoft guidance & Q&A discussions (see the referenced Microsoft Q&A thread). To call multiple protected APIs you must obtain (and MSAL will cache) one access token per resource.
+Q&A Thread: [Microsoft Q&A: I want to get an access token with all my scopes in it.](https://learn.microsoft.com/en-us/answers/questions/1433066/i-want-to-get-an-access-token-with-all-my-scopes-i) (paraphrased summary above)
 
 ### Common Misconception
 You *can* request multiple scopes in one token request **only if** they all belong to the *same* resource (share the same Application ID URI prefix). But you *cannot* combine scopes that point to different `api://` application ID URIs.
