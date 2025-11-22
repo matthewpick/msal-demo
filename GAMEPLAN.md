@@ -326,47 +326,48 @@ Now that AWS infrastructure is working, add Azure AD authentication.
 #### 8.2 Implement MSAL in React
 - [x] Create `frontend/src/authConfig.js`
   - [x] Configure MSAL instance with client ID, tenant ID, redirect URI
-  - [x] Define combined scopes for all 3 APIs in single token (more efficient!)
+  - [x] Define per-API scopes for on-demand token acquisition
 - [x] Wrap app with `MsalProvider` in `main.jsx`
 - [x] Create authentication UI
   - [x] Sign-in button
   - [x] Display user info when authenticated
   - [x] Sign-out button
 - [x] Create custom hook `useApiCall` for authenticated API calls
-  - [x] Single token acquisition with all 3 API scopes
+  - [x] On-demand token acquisition per API (Azure AD doesn't allow multi-resource tokens)
   - [x] Implements acquireTokenSilent with fallback to popup
   - [x] Handles InteractionRequiredAuthError
   - [x] Adds token to Authorization header (Bearer token)
-  - [x] Reuses cached token for all API calls
+  - [x] MSAL automatically caches and reuses tokens
 - [x] Update API call components to use MSAL
-  - [x] All API cards use same authenticated callApi function
-  - [x] Single token works for all 3 APIs
+  - [x] Each API card acquires its own token on first call
+  - [x] Tokens cached and reused for subsequent calls
   - [x] Disable API buttons when not authenticated
 
 #### 8.3 Local Testing with Auth
 - [x] Updated local `.env` for development
   - [x] Set VITE_REDIRECT_URI=http://localhost:5173/
 - [x] Frontend running locally at http://localhost:5173
-- [ ] Test login flow
-- [ ] Test calling each API with acquired token
-- [ ] Test logout flow
-- [ ] Test token refresh
-- [ ] Check for error handling
+- [x] Test login flow
+- [x] Test calling each API with acquired token
+- [x] Test logout flow
+- [x] Token acquisition and caching working correctly
+- [x] All 3 APIs successfully called with authentication
 
 ---
 
 ### Phase 9: Production Deployment with Auth
 
 #### 9.1 Redeploy Frontend with MSAL
-- [ ] Update production `.env` with Azure AD values
-- [ ] Build production bundle (`npm run build`)
-- [ ] Deploy to S3
-  - [ ] `aws s3 sync dist/ s3://your-bucket-name`
-  - [ ] `aws cloudfront create-invalidation --distribution-id XXX --paths "/*"`
+- [x] Update production `.env` with Azure AD values
+- [x] Build production bundle (`npm run build`)
+- [x] Deploy to S3
+  - [x] `aws s3 sync dist/ s3://demo-frontend-matthewpick-com`
+  - [x] `aws cloudfront create-invalidation --distribution-id E2F6UA1ZXUZ81O --paths "/*"`
+- [x] Deployment successful - https://demo-frontend.matthewpick.com
 
 #### 9.2 End-to-End Testing
-- [ ] Access https://demo-frontend.matthewpick.com
-- [ ] Test complete authentication flow
+- [ ] Access https://demo-frontend.matthewpick.com (wait for CloudFront invalidation)
+- [ ] Test complete authentication flow in production
 - [ ] Test token acquisition for all 3 APIs
 - [ ] Test calling all 3 APIs with auth
 - [ ] Test token expiry and refresh
