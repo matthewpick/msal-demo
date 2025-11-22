@@ -31,26 +31,30 @@ App Names:
 Start with AWS since you're most familiar with it. Deploy infrastructure first for all 3 backend APIs and the frontend.
 
 #### 1.1 AWS Terraform Setup
-- [ ] Create `aws/main.tf` with provider configuration
-  - [ ] Configure AWS provider
-  - [ ] Set up backend state storage (save locally for now)
-- [ ] Create `aws/variables.tf`
-  - [ ] Domain names for all 3 APIs
-  - [ ] Frontend domain name
-  - [ ] Route53 hosted zone ID
-- [ ] Create `aws/outputs.tf`
-  - [ ] CloudFront distribution URLs
-  - [ ] Lambda function ARNs
-  - [ ] S3 bucket name
-- [ ] Create `aws/.terraform-version` file
+- [x] Create `aws/main.tf` with provider configuration
+  - [x] Configure AWS provider (region + required providers) and local backend placeholder
+  - [x] Set up backend state storage (local; migrate to remote later)
+- [x] Create `aws/variables.tf`
+  - [x] Domain names for all 3 APIs
+  - [x] Frontend domain name
+  - [x] Route53 hosted zone ID
+- [x] Create `aws/outputs.tf`
+  - [x] CloudFront distribution URLs (placeholders / null for now)
+  - [x] Lambda function ARNs (placeholders)
+  - [x] S3 bucket name (placeholder)
+- [x] Create `aws/.terraform-version` file
+  - Version pinned to 1.8.5 (adjust if using opentofu)
+  
+> Next: Request ACM certs (1.2). Consider installing Terraform locally (brew install terraform) before proceeding.
 
 #### 1.2 SSL Certificates (ACM)
-- [ ] Request/import SSL certificates in ACM (us-east-1 for CloudFront)
-  - [ ] Certificate for api1.matthewpick.com
-  - [ ] Certificate for api2.matthewpick.com
-  - [ ] Certificate for api3.matthewpick.com
-  - [ ] Certificate for demo-frontend.matthewpick.com
-- [ ] Validate certificates via DNS (Route53)
+- [x] Request/import SSL certificates in ACM (us-east-1 for CloudFront)
+  - [x] Certificate for api1.matthewpick.com
+  - [x] Certificate for api2.matthewpick.com
+  - [x] Certificate for api3.matthewpick.com
+  - [x] Certificate for demo-frontend.matthewpick.com
+- [ ] Validate certificates via DNS (Route53)  
+  > Terraform has created DNS validation records; after they propagate ACM will mark certificates as ISSUED. Re-run `tofu apply` if initial status remains PENDING for too long.
 
 #### 1.3 Lambda + API Gateway for Backend APIs
 Create modules for reusable infrastructure (3 identical deployments):
@@ -496,4 +500,3 @@ terraform init
 terraform plan
 terraform apply
 ```
-
