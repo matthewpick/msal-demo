@@ -9,6 +9,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 5.0"
     }
+    archive = {
+      source  = "hashicorp/archive"
+      version = "~> 2.4"
+    }
   }
 }
 
@@ -75,4 +79,25 @@ resource "aws_acm_certificate_validation" "cert" {
   for_each = aws_acm_certificate.cert
   certificate_arn         = each.value.arn
   validation_record_fqdns = [aws_route53_record.cert_validation[each.key].fqdn]
+}
+
+module "api1" {
+  source                = "./modules/api_backend"
+  domain_name           = var.api1_domain
+  certificate_arn       = aws_acm_certificate.cert["api1"].arn
+  route53_hosted_zone_id = var.route53_hosted_zone_id
+}
+
+module "api2" {
+  source                = "./modules/api_backend"
+  domain_name           = var.api2_domain
+  certificate_arn       = aws_acm_certificate.cert["api2"].arn
+  route53_hosted_zone_id = var.route53_hosted_zone_id
+}
+
+module "api3" {
+  source                = "./modules/api_backend"
+  domain_name           = var.api3_domain
+  certificate_arn       = aws_acm_certificate.cert["api3"].arn
+  route53_hosted_zone_id = var.route53_hosted_zone_id
 }

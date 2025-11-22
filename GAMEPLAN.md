@@ -59,22 +59,23 @@ Start with AWS since you're most familiar with it. Deploy infrastructure first f
 #### 1.3 Lambda + API Gateway for Backend APIs
 Create modules for reusable infrastructure (3 identical deployments):
 
-- [ ] Create Lambda function module for API 1
-  - [ ] Lambda function with Python runtime
-  - [ ] Lambda execution role with necessary permissions
-  - [ ] Environment variables placeholder (AZURE_CLIENT_ID, AZURE_TENANT_ID, etc.)
-  - [ ] Lambda layer for dependencies (optional, or include in deployment package)
-- [ ] Create API Gateway (HTTP API) for API 1
-  - [ ] Configure routes (/{proxy+})
-  - [ ] Integrate with Lambda
-  - [ ] Configure custom domain
-- [ ] Create CloudFront distribution for API 1
-  - [ ] Origin pointing to API Gateway
-  - [ ] Custom domain (api1.matthewpick.com)
-  - [ ] SSL certificate from ACM
-  - [ ] Cache behaviors (consider caching headers for auth)
-- [ ] Duplicate setup for API 2 (api2.matthewpick.com)
-- [ ] Duplicate setup for API 3 (api3.matthewpick.com)
+- [x] Create Lambda function module for API 1
+  - [x] Lambda function with Python runtime (stub)
+  - [x] Lambda execution role with necessary permissions
+  - [x] Environment variables placeholder (APP_DOMAIN)
+  - [ ] Add future environment variables (AZURE_CLIENT_ID, AZURE_TENANT_ID, etc.)
+  - [x] Archive provider to build stub zip inline
+- [x] Create API Gateway (HTTP API) for API 1
+  - [x] Configure default route ($default)
+  - [x] Integrate with Lambda (AWS_PROXY)
+  - [x] Auto-deploy stage
+- [x] Create CloudFront distribution for API 1
+  - [x] Origin pointing to API Gateway endpoint
+  - [x] Custom domain (api1.matthewpick.com)
+  - [x] SSL certificate from ACM
+  - [x] Caching disabled (TTL 0) ready for auth headers
+- [x] Duplicate setup for API 2 (api2.matthewpick.com)
+- [x] Duplicate setup for API 3 (api3.matthewpick.com)
 
 #### 1.4 S3 + CloudFront for Frontend
 - [ ] Create S3 bucket for frontend static files
@@ -353,8 +354,6 @@ Now that AWS infrastructure is working, add Azure AD authentication.
 - [ ] Verify CORS is working with auth headers
 
 ---
-
-### Phase 10: Documentation & Polish
 
 ### Phase 10: Documentation & Polish
 

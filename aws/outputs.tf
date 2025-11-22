@@ -3,17 +3,17 @@
 
 output "api1_cloudfront_domain_name" {
   description = "Domain name of CloudFront distribution for API 1"
-  value       = null # e.g., aws_cloudfront_distribution.api1.domain_name
+  value       = module.api1.cloudfront_domain_name
 }
 
 output "api2_cloudfront_domain_name" {
   description = "Domain name of CloudFront distribution for API 2"
-  value       = null
+  value       = module.api2.cloudfront_domain_name
 }
 
 output "api3_cloudfront_domain_name" {
   description = "Domain name of CloudFront distribution for API 3"
-  value       = null
+  value       = module.api3.cloudfront_domain_name
 }
 
 output "frontend_cloudfront_domain_name" {
@@ -23,17 +23,17 @@ output "frontend_cloudfront_domain_name" {
 
 output "api1_lambda_arn" {
   description = "Lambda function ARN for API 1"
-  value       = null # e.g., aws_lambda_function.api1.arn
+  value       = module.api1.lambda_function_arn
 }
 
 output "api2_lambda_arn" {
   description = "Lambda function ARN for API 2"
-  value       = null
+  value       = module.api2.lambda_function_arn
 }
 
 output "api3_lambda_arn" {
   description = "Lambda function ARN for API 3"
-  value       = null
+  value       = module.api3.lambda_function_arn
 }
 
 output "frontend_s3_bucket_name" {
