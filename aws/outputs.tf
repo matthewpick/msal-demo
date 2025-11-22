@@ -41,6 +41,11 @@ output "frontend_s3_bucket_name" {
   value       = module.frontend.bucket_name
 }
 
+output "frontend_cloudfront_distribution_id" {
+  description = "CloudFront distribution ID for frontend"
+  value       = module.frontend.cloudfront_distribution_id
+}
+
 output "acm_certificate_arns" {
   description = "Map of certificate logical key to ACM certificate ARN"
   value       = { for k, cert in aws_acm_certificate.cert : k => cert.arn }

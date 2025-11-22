@@ -184,29 +184,30 @@ Build a simple React frontend first without MSAL auth, then add authentication l
 #### 4.2 Local Testing
 - [x] Test frontend locally (`npm run dev`)
 - [x] Dev server running on http://localhost:5173
-- [ ] Test calling all 3 APIs
-- [ ] Verify CORS is working
-- [ ] Check browser console for errors
+- [x] Test calling all 3 APIs
+- [x] Verify CORS is working
+- [x] Check browser console for errors
 
 ---
 
 ### Phase 5: Frontend Deployment to AWS
 
 #### 5.1 Build and Deploy
-- [ ] Create production `.env` with production values
-- [ ] Create production build (`npm run build`)
-- [ ] Create `frontend/deploy.sh` script
-  - [ ] Sync build folder to S3 bucket
-  - [ ] Invalidate CloudFront cache
-- [ ] Deploy to S3 via AWS CLI
-  - [ ] `aws s3 sync dist/ s3://your-bucket-name`
-  - [ ] `aws cloudfront create-invalidation --distribution-id XXX --paths "/*"`
+- [x] Create production `.env` with production values
+- [x] Create production build (`npm run build`)
+- [x] Create `frontend/deploy.sh` script
+  - [x] Sync build folder to S3 bucket
+  - [x] Invalidate CloudFront cache
+- [x] Deploy to S3 via AWS CLI
+  - [x] `aws s3 sync dist/ s3://demo-frontend-matthewpick-com`
+  - [x] `aws cloudfront create-invalidation --distribution-id E2F6UA1ZXUZ81O --paths "/*"`
 
 #### 5.2 Verify Frontend
-- [ ] Access https://demo-frontend.matthewpick.com
-- [ ] Test calling all 3 APIs
+- [x] Access https://demo-frontend.matthewpick.com
+- [x] Frontend successfully deployed and serving
+- [ ] Test calling all 3 APIs from production
 - [ ] Check browser console for errors
-- [ ] Verify CORS is working
+- [ ] Verify CORS is working in production
 
 ---
 
