@@ -101,3 +101,10 @@ module "api3" {
   certificate_arn       = aws_acm_certificate.cert["api3"].arn
   route53_hosted_zone_id = var.route53_hosted_zone_id
 }
+
+module "frontend" {
+  source                 = "./modules/frontend_site"
+  domain_name            = var.frontend_domain
+  certificate_arn        = aws_acm_certificate.cert["frontend"].arn
+  route53_hosted_zone_id = var.route53_hosted_zone_id
+}

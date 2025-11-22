@@ -18,7 +18,7 @@ output "api3_cloudfront_domain_name" {
 
 output "frontend_cloudfront_domain_name" {
   description = "Domain name of CloudFront distribution for the frontend"
-  value       = null
+  value       = module.frontend.cloudfront_domain_name
 }
 
 output "api1_lambda_arn" {
@@ -38,7 +38,7 @@ output "api3_lambda_arn" {
 
 output "frontend_s3_bucket_name" {
   description = "S3 bucket name hosting the frontend static site"
-  value       = null # e.g., aws_s3_bucket.frontend.bucket
+  value       = module.frontend.bucket_name
 }
 
 output "acm_certificate_arns" {

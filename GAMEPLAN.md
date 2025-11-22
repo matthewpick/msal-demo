@@ -78,21 +78,19 @@ Create modules for reusable infrastructure (3 identical deployments):
 - [x] Duplicate setup for API 3 (api3.matthewpick.com)
 
 #### 1.4 S3 + CloudFront for Frontend
-- [ ] Create S3 bucket for frontend static files
-  - [ ] Configure bucket settings
-  - [ ] Block public access (CloudFront will access via OAC/OAI)
-- [ ] Create CloudFront distribution for frontend
-  - [ ] Origin: S3 bucket
-  - [ ] Custom domain (demo-frontend.matthewpick.com)
-  - [ ] SSL certificate from ACM
-  - [ ] Default root object: index.html
-  - [ ] Custom error responses (404 -> /index.html for SPA routing)
-  - [ ] Origin Access Control (OAC) or Origin Access Identity (OAI)
-- [ ] Create Route53 records
-  - [ ] A record (alias) for api1.matthewpick.com -> CloudFront
-  - [ ] A record (alias) for api2.matthewpick.com -> CloudFront
-  - [ ] A record (alias) for api3.matthewpick.com -> CloudFront
-  - [ ] A record (alias) for demo-frontend.matthewpick.com -> CloudFront
+- [x] Create S3 bucket for frontend static files
+  - [x] Configure bucket settings (ownership controls, block public access)
+  - [x] Block public access (CloudFront OAI used for access)
+- [x] Create CloudFront distribution for frontend
+  - [x] Origin: S3 bucket
+  - [x] Custom domain (demo-frontend.matthewpick.com)
+  - [x] SSL certificate from ACM
+  - [x] Default root object: index.html
+  - [x] Custom error responses (404/403 -> /index.html)
+  - [x] Origin Access Identity (OAI)
+- [x] Create Route53 record
+  - [x] A record (alias) for demo-frontend.matthewpick.com -> CloudFront
+  > Placeholder index.html deployed; will be replaced by React build in later phases.
 
 #### 1.5 Deploy AWS Infrastructure
 - [ ] Run `terraform init` in aws/ directory
