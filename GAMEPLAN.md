@@ -205,9 +205,9 @@ Build a simple React frontend first without MSAL auth, then add authentication l
 #### 5.2 Verify Frontend
 - [x] Access https://demo-frontend.matthewpick.com
 - [x] Frontend successfully deployed and serving
-- [ ] Test calling all 3 APIs from production
-- [ ] Check browser console for errors
-- [ ] Verify CORS is working in production
+- [x] Test calling all 3 APIs from production
+- [x] Check browser console for errors
+- [x] Verify CORS is working in production
 
 ---
 
@@ -216,55 +216,60 @@ Build a simple React frontend first without MSAL auth, then add authentication l
 Now that AWS infrastructure is working, add Azure AD authentication.
 
 #### 6.1 Azure Terraform Setup
-- [ ] Create `azure/main.tf` with provider configuration
-  - [ ] Configure azuread provider
-  - [ ] Configure azurerm provider (if needed for key vault)
-  - [ ] Set up backend state storage (save locally for now)
-- [ ] Create `azure/variables.tf` for input variables
-  - [ ] Define domain names for 3 APIs
-  - [ ] Define frontend domain name
-  - [ ] Define tenant ID variable
-  - [ ] Define redirect URIs
-- [ ] Create `azure/outputs.tf` for exporting important values
-  - [ ] Output all 3 API application (client) IDs
-  - [ ] Output all 3 API application ID URIs
-  - [ ] Output frontend application (client) ID
-  - [ ] Output tenant ID
-- [ ] Create `azure/terraform.tfvars` (add to .gitignore!)
-- [ ] Create `azure/.terraform-version` file
+- [x] Create `azure/main.tf` with provider configuration
+  - [x] Configure azuread provider
+  - [x] Configure azurerm provider (if needed for key vault)
+  - [x] Set up backend state storage (save locally for now)
+- [x] Create `azure/variables.tf` for input variables
+  - [x] Define domain names for 3 APIs
+  - [x] Define frontend domain name
+  - [x] Define tenant ID variable
+  - [x] Define redirect URIs
+- [x] Create `azure/outputs.tf` for exporting important values
+  - [x] Output all 3 API application (client) IDs
+  - [x] Output all 3 API application ID URIs
+  - [x] Output frontend application (client) ID
+  - [x] Output tenant ID
+- [x] Create `azure/terraform.tfvars` (add to .gitignore!)
+- [x] Create `azure/.terraform-version` file
 
 #### 6.2 Azure AD App Registrations - Backend APIs
-- [ ] Create app registration for API 1 (api1.matthewpick.com)
-  - [ ] Define API permissions (expose an API)
-  - [ ] Create custom scope (e.g., "api://api1.matthewpick.com/access_as_user")
-  - [ ] Configure authentication settings
-  - [ ] Set identifier URI (api://api1.matthewpick.com)
-- [ ] Create app registration for API 2 (api2.matthewpick.com)
-  - [ ] Define API permissions (expose an API)
-  - [ ] Create custom scope (e.g., "api://api2.matthewpick.com/access_as_user")
-  - [ ] Configure authentication settings
-  - [ ] Set identifier URI (api://api2.matthewpick.com)
-- [ ] Create app registration for API 3 (api3.matthewpick.com)
-  - [ ] Define API permissions (expose an API)
-  - [ ] Create custom scope (e.g., "api://api3.matthewpick.com/access_as_user")
-  - [ ] Configure authentication settings
-  - [ ] Set identifier URI (api://api3.matthewpick.com)
+- [x] Create app registration for API 1 (api1.matthewpick.com)
+  - [x] Define API permissions (expose an API)
+  - [x] Create custom scope (e.g., "api://api1.matthewpick.com/access_as_user")
+  - [x] Configure authentication settings
+  - [x] Set identifier URI (api://api1.matthewpick.com)
+  - [x] Client ID: 2690829c-0be9-49fb-ba82-5fffc33f5d5b
+- [x] Create app registration for API 2 (api2.matthewpick.com)
+  - [x] Define API permissions (expose an API)
+  - [x] Create custom scope (e.g., "api://api2.matthewpick.com/access_as_user")
+  - [x] Configure authentication settings
+  - [x] Set identifier URI (api://api2.matthewpick.com)
+  - [x] Client ID: aacec607-140f-4860-b6a4-ea0c51df1153
+- [x] Create app registration for API 3 (api3.matthewpick.com)
+  - [x] Define API permissions (expose an API)
+  - [x] Create custom scope (e.g., "api://api3.matthewpick.com/access_as_user")
+  - [x] Configure authentication settings
+  - [x] Set identifier URI (api://api3.matthewpick.com)
+  - [x] Client ID: dd736fed-b4e3-4a3c-89e0-be338764210d
 
 #### 6.3 Azure AD App Registration - Frontend SPA
-- [ ] Create app registration for frontend (demo-frontend.matthewpick.com)
-  - [ ] Set platform to "Single-page application"
-  - [ ] Configure redirect URIs (https://demo-frontend.matthewpick.com, http://localhost:5173 for dev)
-  - [ ] Enable implicit flow (ID tokens) if needed
-  - [ ] Add API permissions for all 3 backend APIs
-  - [ ] Grant admin consent for API permissions
-  - [ ] Configure logout URL
+- [x] Create app registration for frontend (demo-frontend.matthewpick.com)
+  - [x] Set platform to "Single-page application"
+  - [x] Configure redirect URIs (https://demo-frontend.matthewpick.com/, http://localhost:5173/ for dev)
+  - [x] Enable implicit flow (ID tokens)
+  - [x] Add API permissions for all 3 backend APIs
+  - [ ] Grant admin consent for API permissions (manual step in Azure Portal)
+  - [x] Configure logout URL
+  - [x] Client ID: 26c56ce3-9704-4ce7-bbf8-fb1e2095d46a
+  - [x] Tenant ID: 611b1d40-e0c9-4dc7-a161-337daf7a1fb9
 
 #### 6.4 Deploy Azure Infrastructure
-- [ ] Run `terraform init` in azure/ directory
-- [ ] Run `terraform plan` and review
-- [ ] Run `terraform apply` and save outputs
-- [ ] Store outputs in a secure location (for backend/frontend configuration)
-- [ ] Document client IDs and tenant ID
+- [x] Run `terraform init` in azure/ directory
+- [x] Run `terraform plan` and review
+- [x] Run `terraform apply` and save outputs
+- [x] All app registrations created successfully
+- [x] Outputs documented
 
 ---
 

@@ -46,3 +46,4 @@ dist/
 *.swo
 .DS_Store
 
+terraform.tfvars
