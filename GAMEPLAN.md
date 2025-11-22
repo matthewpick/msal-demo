@@ -93,11 +93,20 @@ Create modules for reusable infrastructure (3 identical deployments):
   > Placeholder index.html deployed; will be replaced by React build in later phases.
 
 #### 1.5 Deploy AWS Infrastructure
-- [ ] Run `terraform init` in aws/ directory
-- [ ] Run `terraform plan` and review
-- [ ] Run `terraform apply`
-- [ ] Verify all resources created successfully
-- [ ] Note outputs (CloudFront URLs, S3 bucket names, etc.)
+- [x] Run `terraform init` in aws/ directory
+- [x] Run `terraform plan` and review
+- [x] Run `terraform apply`
+- [x] Verify all resources created successfully
+  - API stubs respond 200 with JSON message
+  - Frontend placeholder index.html served (HTTP 200)
+  - Custom domains resolving via CloudFront
+- [x] Note outputs (CloudFront URLs, S3 bucket names, etc.)
+  - api1 CloudFront: d3negntvroeihe.cloudfront.net
+  - api2 CloudFront: djp6q20xs3vwt.cloudfront.net
+  - api3 CloudFront: d2cug53w0d6z9j.cloudfront.net
+  - frontend CloudFront: draa5yr1wxkrq.cloudfront.net
+  - frontend bucket: demo-frontend-matthewpick-com
+  > Next: Proceed to Phase 2 - Backend API Development
 
 ---
 
